@@ -101,7 +101,6 @@ class appWindow(QMainWindow):
         
     def remove_current_item(self):
         self.audio_files.pop(self.audio_file_index)
-        print(self.previous_path)
         self.set_current_audio()
 
     def read_folder(self):

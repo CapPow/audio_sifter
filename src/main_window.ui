@@ -78,7 +78,7 @@
          <number>50</number>
         </property>
         <property name="maximum">
-         <number>300</number>
+         <number>200</number>
         </property>
         <property name="singleStep">
          <number>10</number>
@@ -285,7 +285,7 @@
          </font>
         </property>
         <property name="text">
-         <string/>
+         <string>1.00</string>
         </property>
        </widget>
       </item>
@@ -357,22 +357,6 @@
   <include location="resources/resources.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>speed_slider</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>playback_speed_label</receiver>
-   <slot>setNum(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>355</x>
-     <y>319</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>595</x>
-     <y>329</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>vol_slider</sender>
    <signal>valueChanged(int)</signal>
