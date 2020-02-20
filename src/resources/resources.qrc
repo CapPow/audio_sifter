@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="icn">
+    <file>volume-2.svg</file>
+    <file>check.svg</file>
+    <file>corner-up-left.svg</file>
+    <file>play.svg</file>
+    <file>plus-square.svg</file>
+    <file>skip-forward.svg</file>
+    <file>x.svg</file>
+  </qresource>
+</RCC>
