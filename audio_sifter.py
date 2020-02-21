@@ -56,6 +56,7 @@ class appWindow(QMainWindow):
         
         # class variables
         self.audio_files = []
+        self.initial_audio_count = 0
         self.current_audio_file = ""
         self.audio_file_index = 0
         self.dir_path = ""
@@ -71,6 +72,8 @@ class appWindow(QMainWindow):
         self.mainWindow.play_toolButton.pressed.connect(self.set_current_audio)
         self.mainWindow.back_toolButton.pressed.connect(self.back_button)
         
+        # initialize widget based settings 
+        self.toggle_play_entire(1)
         self.set_vol(75)
         
     def back_button(self):
@@ -81,15 +84,15 @@ class appWindow(QMainWindow):
         shutil_move(self.previous_path, dst_path)
         self.audio_files.insert(self.audio_file_index, dst_path)
         self.set_current_audio()
-        
-        
+        # update the progress bar
+        self.update_progress_bar
+
     def toss_current_audio(self):
         base_name = os.path.basename(self.current_audio_file)
         toss_dst = os.path.join(self.toss_path +"/"+ base_name)
         shutil_move(self.current_audio_file, toss_dst)
         self.previous_path = toss_dst
         self.remove_current_item()
-
         
     def keep_current_audio(self):
         base_name = os.path.basename(self.current_audio_file)
@@ -97,17 +100,24 @@ class appWindow(QMainWindow):
         shutil_move(self.current_audio_file, keep_dst)
         self.previous_path = keep_dst
         self.remove_current_item()
-
         
     def remove_current_item(self):
         self.audio_files.pop(self.audio_file_index)
         self.set_current_audio()
+        # update the progress bar
+        self.update_progress_bar()
+    
+    def update_progress_bar(self):
+        len_audio_files = len(self.audio_files)
+        initial_audio_count = self.initial_audio_count
+        completed_audio_count = initial_audio_count - len_audio_files
+        progress_value = int( (completed_audio_count / initial_audio_count) * 100 )
+        self.mainWindow.progressBar.setValue(progress_value)
 
     def read_folder(self):
         dir_path = QtWidgets.QFileDialog.getExistingDirectory(self,
                                                             "Select Audio Directory")
         self.dir_path = dir_path
-        
         # set the toss and keep paths, and be sure they exist
         toss_path = os.path.join(dir_path + "/toss")
         if not os.path.exists(toss_path ):
@@ -118,17 +128,22 @@ class appWindow(QMainWindow):
         if not os.path.exists(keep_path):
             os.makedirs(keep_path )
         self.keep_path = keep_path 
-
-        
         self.set_audio_files()
 
     def set_audio_files(self):
         
         # get the audio files
-        self.audio_files = glob.glob(f"{self.dir_path}/*.wav", recursive=False)
-        
+        audio_files = list(set(glob.glob(f"{self.dir_path}/*.wav", recursive=False)))
+        self.audio_files = audio_files
+
+        # get the initial count of audio files
+        self.initial_audio_count = len(audio_files)
+
         # set the current audio
         self.set_current_audio()
+
+        # set the progress bar
+        self.update_progress_bar()
 
     def set_current_audio(self):
         # identify which audio file to target
@@ -157,7 +172,7 @@ class appWindow(QMainWindow):
         # now play the audio
         self.load_audio()
         self.player.play()
-        
+
     def setInterval(self, path, start, end):
         """
             path: path of video
@@ -170,15 +185,26 @@ class appWindow(QMainWindow):
         self._end = end
         self.player.play()
 
+    def toggle_play_entire(self, _):
+        if self.mainWindow.play_entire_checkBox.isChecked():
+            self.start_pos = 0
+            self.end_pos = 5000
+        else:
+            self.start_pos = 1500
+            self.end_pos = 3500
+
     def load_audio(self):
         sound = QMediaContent(QtCore.QUrl.fromLocalFile(self.current_audio_file))
         self.player.setMedia(sound)
-        self.player.setPosition(1000)
+        self.player.setPosition(self.start_pos)
         
     @QtCore.pyqtSlot('qint64')
     def on_positionChanged(self, position):
+        """
+        Is called each time the player position changes....
+        """
         if self.player.state() == QMediaPlayer.PlayingState:
-            if position > 4001:
+            if position > self.end_pos:
                 self.player.stop()
         
     def skip_current_audio(self):

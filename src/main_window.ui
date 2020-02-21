@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>628</width>
-    <height>405</height>
+    <width>681</width>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,6 +40,11 @@
       </item>
       <item>
        <widget class="QProgressBar" name="progressBar">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
         <property name="value">
          <number>0</number>
         </property>
@@ -96,75 +101,6 @@
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
-      </item>
-      <item row="4" column="2">
-       <widget class="QLabel" name="label_4">
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>X</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2" colspan="3">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Playback Multiplier</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QToolButton" name="play_toolButton">
-        <property name="toolTip">
-         <string>Replay</string>
-        </property>
-        <property name="toolTipDuration">
-         <number>5</number>
-        </property>
-        <property name="text">
-         <string>...</string>
-        </property>
-        <property name="icon">
-         <iconset resource="resources/resources.qrc">
-          <normaloff>:/icn/play.svg</normaloff>:/icn/play.svg</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="4">
-       <widget class="QLabel" name="name_label">
-        <property name="font">
-         <font>
-          <pointsize>35</pointsize>
-          <italic>true</italic>
-          <underline>true</underline>
-         </font>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
       </item>
       <item row="1" column="0" colspan="4">
        <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -241,6 +177,111 @@
         </item>
        </layout>
       </item>
+      <item row="1" column="4">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="0" rowspan="3">
+       <widget class="QSlider" name="vol_slider">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>75</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="invertedAppearance">
+         <bool>false</bool>
+        </property>
+        <property name="invertedControls">
+         <bool>false</bool>
+        </property>
+        <property name="tickInterval">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QToolButton" name="play_toolButton">
+        <property name="toolTip">
+         <string>Replay</string>
+        </property>
+        <property name="toolTipDuration">
+         <number>5</number>
+        </property>
+        <property name="text">
+         <string>...</string>
+        </property>
+        <property name="icon">
+         <iconset resource="resources/resources.qrc">
+          <normaloff>:/icn/play.svg</normaloff>:/icn/play.svg</iconset>
+        </property>
+        <property name="shortcut">
+         <string>Down</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="4">
+       <widget class="QLabel" name="name_label">
+        <property name="font">
+         <font>
+          <pointsize>35</pointsize>
+          <italic>true</italic>
+          <underline>true</underline>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2" colspan="3">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Playback Multiplier</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0" colspan="2">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="text">
+         <string>Down Arrow Key</string>
+        </property>
+       </widget>
+      </item>
       <item row="2" column="1" colspan="3">
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
@@ -277,19 +318,35 @@
         </item>
        </layout>
       </item>
-      <item row="4" column="3" colspan="2">
-       <widget class="QLabel" name="playback_speed_label">
+      <item row="7" column="2" colspan="3">
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="text">
+         <string>Up Arrow Key</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLabel" name="label_4">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>1.00</string>
+         <string>X</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
-      <item row="5" column="3" colspan="2">
+      <item row="5" column="3">
        <widget class="QToolButton" name="skip_toolButton">
         <property name="toolTip">
          <string>Skip</string>
@@ -312,38 +369,22 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="4">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
+      <item row="4" column="3" colspan="2">
+       <widget class="QLabel" name="playback_speed_label">
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
+        <property name="text">
+         <string>1.00</string>
         </property>
-       </spacer>
+       </widget>
       </item>
-      <item row="3" column="0" rowspan="3">
-       <widget class="QSlider" name="vol_slider">
-        <property name="maximum">
-         <number>100</number>
-        </property>
-        <property name="value">
-         <number>75</number>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="invertedAppearance">
-         <bool>false</bool>
-        </property>
-        <property name="invertedControls">
-         <bool>false</bool>
-        </property>
-        <property name="tickInterval">
-         <number>10</number>
+      <item row="6" column="1">
+       <widget class="QCheckBox" name="play_entire_checkBox">
+        <property name="text">
+         <string>Play Entire Clip</string>
         </property>
        </widget>
       </item>
@@ -380,8 +421,8 @@
    <slot>set_playback(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>387</x>
-     <y>318</y>
+     <x>420</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>615</x>
@@ -389,9 +430,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>play_entire_checkBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>toggle_play_entire(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>78</x>
+     <y>407</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>15</x>
+     <y>411</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>set_vol(int)</slot>
   <slot>set_playback(int)</slot>
+  <slot>toggle_play_entire(int)</slot>
  </slots>
 </ui>
