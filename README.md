@@ -7,7 +7,7 @@ a quick UI for cleaning audio files for network training
 - Generates a keep and toss subfolder in the given folder
 - Plays audio files from the given folder, providing quick keep/toss hotkeys
 - By default plays audio starting after 1.5 seconds and stopping after 3.5seconds
- - This is to ensure the target audio survives timeshifting and pitch shifting during augmentation
+  - This is to ensure the target audio survives timeshifting and pitch shifting during augmentation
 - Has playback speed & volume controls
 - Has an undo button
 
