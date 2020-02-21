@@ -12,3 +12,10 @@ a quick UI for cleaning audio files for network training
 - Has an undo button
 
 - Requires PyQt5, built on Qt framework
+
+Example audio files were sourced from the [he Macaulay Library](https://www.macaulaylibrary.org/).
+Example audio files are named as A_B_C_D.wav, where:
+ - A is the genus name
+ - B is species name
+ - C is accession number
+ - D is a 5 second subsample number cut from larger full audio file.
